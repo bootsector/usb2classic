@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+				"${workspaceFolder}/**",
+				"/Applications/sdcc-3.8.0/share/sdcc/include"
+            ],
+            "defines": [],
+            "compilerPath": "/Applications/sdcc-3.8.0/bin/sdcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}

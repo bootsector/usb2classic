@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"delay.h": "c",
+		"stm8s.h": "c",
+		"ps4usb.h": "c"
+	}
+}

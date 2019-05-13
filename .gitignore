@@ -1,0 +1,15 @@
+.DS_Store
+*.code-workspace
+**/.vscode/ipch/*
+**/.settings/*
+*.asm
+*.cdb
+*.ihx
+*.lk
+*.lst
+*.map
+*.noi
+*.rel
+*.sym
+*.rst
+*.bin
