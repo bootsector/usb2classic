@@ -145,25 +145,27 @@ static const USB_Device_ID_t XBOX360RCV_DEVICES[XBOX360RCV_DEVICES_SIZE] = {
 	{0x045E, 0x0719}
 };
 
-#define PS4USB_DEVICES_SIZE 8
+#define PS4USB_DEVICES_SIZE 9
 
 static const USB_Device_ID_t PS4USB_DEVICES[PS4USB_DEVICES_SIZE] = {
 	{0x054C, 0x09CC},
 	{0x054C, 0x05C4},
 	{0x0738, 0x8250},
 	{0x0738, 0x8384}, // Madcatz FightStick TE S+ PS4
+	{0x0738, 0x8480}, // Madcatz TE2 (PS4 Mode)
 	{0x0738, 0x8481}, // Madcatz TE2+ (PS4 Mode)
 	{0x0C12, 0x0EF1}, // ZEROPLUS P4 Wired GamepadV2.3
 	{0x0F0D, 0x0087}, // Hori Fighting Stick mini 4 PS4 Mode
 	{0x1532, 0x0401}  // Razer Panthera (PS4 Mode)
 };
 
-#define PS3VIRTUASTICK_DEVICES_SIZE 19
+#define PS3VIRTUASTICK_DEVICES_SIZE 20
 
 static const USB_Device_ID_t PS3VIRTUASTICK_DEVICES[PS3VIRTUASTICK_DEVICES_SIZE] = {
 	{0x04B4, 0x010A}, //  Sega "Saturn Style" USB pad
 	{0x0738, 0x3187}, // Madcatz PS3 BrawlStick
 	{0x0738, 0x3250},
+	{0x0738, 0x3480}, // Madcatz TE2 (PS3 Mode)
 	{0x0738, 0x3481}, // Madcatz TE2+ (PS3 Mode)
 	{0x0738, 0x8818}, // Madcatz SFIV SE Fightstick
 	{0x0738, 0x8828}, // MadCatz FightPad PS3 (wireless dongle)

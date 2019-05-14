@@ -13,3 +13,6 @@
 *.sym
 *.rst
 *.bin
+*.out
+*.vvp
+*.vcd
