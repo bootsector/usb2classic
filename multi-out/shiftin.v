@@ -43,8 +43,8 @@ always @(posedge sync_clk or posedge latch) begin
     end
 end
 
-always @(negedge sync_clk or negedge latch) begin
-    data <= tmp[BITS-1];
+always @(*) begin
+    data = tmp[BITS-1];
 end
 
 endmodule

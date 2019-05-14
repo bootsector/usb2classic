@@ -34,13 +34,10 @@ module smdsixbutton (
     input md     // Mode button
 );
 
-// On a 20Mhz oscillator, TIMEOUT value below allows for a 400uS time limit
-// for an unchanged p7. Original SEGA specs says this timeout should be 1.6ms
-// but we needed to save those extra 2 bits inside clk_counter so we could fit
-// everything inside the EPM7064SLC44-10N CPLD.
-parameter TIMEOUT = 12'd4095;
+//parameter TIMEOUT = 14'd8000; // For 10Mhz oscillator
+parameter TIMEOUT = 14'd16000; // For 20Mhz oscillator
 
-reg [11:0] clk_counter = TIMEOUT;
+reg [13:0] clk_counter = TIMEOUT;
 
 reg [1:0] hi_count = 2'b0;
 
