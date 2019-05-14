@@ -25,7 +25,7 @@ Currently compatible USB controllers are:
 * XBOX 360 USB controller (and compatible XInput devices)
 * XBOX 360 USB Wireless Receiver
 * 8BitDo Wireless USB Adapter (in XInput mode)
-* Some PS3 USB arcade stick controllers
+* Some PS3/PS4/XBOX360 USB arcade stick controllers
 
 The CPLD originally used by this adapter is an EPM7064SLC44-10N which is 5V
 based. Verilog sources are inside the multi-out directory along with Quartus II
