@@ -145,7 +145,7 @@ static const USB_Device_ID_t XBOX360RCV_DEVICES[XBOX360RCV_DEVICES_SIZE] = {
 	{0x045E, 0x0719}
 };
 
-#define PS4USB_DEVICES_SIZE 9
+#define PS4USB_DEVICES_SIZE 10
 
 static const USB_Device_ID_t PS4USB_DEVICES[PS4USB_DEVICES_SIZE] = {
 	{0x054C, 0x09CC},
@@ -154,6 +154,7 @@ static const USB_Device_ID_t PS4USB_DEVICES[PS4USB_DEVICES_SIZE] = {
 	{0x0738, 0x8384}, // Madcatz FightStick TE S+ PS4
 	{0x0738, 0x8480}, // Madcatz TE2 (PS4 Mode)
 	{0x0738, 0x8481}, // Madcatz TE2+ (PS4 Mode)
+	{0x0C12, 0x0C30}, // Brook Universal Fighting Board - PS4 Mode
 	{0x0C12, 0x0EF1}, // ZEROPLUS P4 Wired GamepadV2.3
 	{0x0F0D, 0x0087}, // Hori Fighting Stick mini 4 PS4 Mode
 	{0x1532, 0x0401}  // Razer Panthera (PS4 Mode)
