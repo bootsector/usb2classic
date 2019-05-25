@@ -34,7 +34,7 @@ static void ps4usb_set_led() {
 
 	ps4_config_bytes[6] = 0x00; // Red
 	ps4_config_bytes[7] = 0x00; // Green
-	ps4_config_bytes[8] = 0xC0; // Blue
+	ps4_config_bytes[8] = 0x01; // Blue
 
 	usbhost_out_transfer(usbhost_usb_device_address(), out_ep, ps4_config_bytes, 32);
 }
