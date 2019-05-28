@@ -17,7 +17,7 @@
  */
 #include "usb_in_detect.h"
 
-#define XBOX360USB_DEVICES_SIZE 116
+#define XBOX360USB_DEVICES_SIZE 117
 
 static const USB_Device_ID_t XBOX360USB_DEVICES[XBOX360USB_DEVICES_SIZE] = {
 	{0x0079, 0x18D4},
@@ -48,6 +48,7 @@ static const USB_Device_ID_t XBOX360USB_DEVICES[XBOX360USB_DEVICES_SIZE] = {
 	{0x0738, 0xCB29},
 	{0x0738, 0xF738},
 	{0x07FF, 0xFFFF},
+	{0x0C12, 0x0EF8}, // Brook Universal Fighting Stick (X360 mode)
 	{0x0E6F, 0x0105},
 	{0x0E6F, 0x0113},
 	{0x0E6F, 0x011F},
