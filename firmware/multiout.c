@@ -95,12 +95,12 @@ void multiout_update(AbstractPad_t *padData) {
 	}
 
 	// Analog triggers map to L2/R2
-	if(padData->l_analog >= 0x80) {
-		padData->l2 = 1;
+	if(!padData->l2) {
+		padData->l2 = (padData->l_analog >= 0x80);
 	}
 
-	if(padData->r_analog >= 0x80) {
-		padData->r2 = 1;
+	if(!padData->r2) {
+		padData->r2 = (padData->r_analog >= 0x80);
 	}
 
 	bit_write(!padData->d_left, pad_data, MULTIOUT_PAD_LEFT);
