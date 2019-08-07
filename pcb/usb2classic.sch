@@ -10524,6 +10524,7 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <part name="R4" library="resistor" deviceset="R-US_" device="0207/10" value="10k"/>
 <part name="JP1" library="pinhead" deviceset="PINHD-1X10" device=""/>
 <part name="JP2" library="pinhead" deviceset="PINHD-1X10" device=""/>
+<part name="R5" library="resistor" deviceset="R-US_" device="0207/10" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -10571,6 +10572,7 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <instance part="R4" gate="G$1" x="226.06" y="-99.06"/>
 <instance part="JP1" gate="A" x="271.78" y="-88.9"/>
 <instance part="JP2" gate="A" x="292.1" y="-88.9"/>
+<instance part="R5" gate="G$1" x="157.48" y="-27.94" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -10850,6 +10852,11 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <pinref part="JP1" gate="A" pin="7"/>
 <wire x1="269.24" y1="-93.98" x2="259.08" y2="-93.98" width="0.1524" layer="91"/>
 <label x="259.08" y="-93.98" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="-33.02" x2="157.48" y2="-38.1" width="0.1524" layer="91"/>
+<label x="152.4" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="OUTPUT_DATA" class="0">
@@ -11266,6 +11273,11 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <pinref part="IC6" gate="0" pin="IO36"/>
 <wire x1="398.78" y1="17.78" x2="383.54" y2="17.78" width="0.1524" layer="91"/>
 <label x="383.54" y="17.78" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="157.48" y1="-22.86" x2="157.48" y2="-17.78" width="0.1524" layer="91"/>
+<label x="139.7" y="-20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="INPUT_LATCH" class="0">
