@@ -161,7 +161,7 @@ static const USB_Device_ID_t PS4USB_DEVICES[PS4USB_DEVICES_SIZE] = {
 	{0x1532, 0x0401}  // Razer Panthera (PS4 Mode)
 };
 
-#define PS3VIRTUASTICK_DEVICES_SIZE 21
+#define PS3VIRTUASTICK_DEVICES_SIZE 22
 
 static const USB_Device_ID_t PS3VIRTUASTICK_DEVICES[PS3VIRTUASTICK_DEVICES_SIZE] = {
 	{0x04B4, 0x010A}, //  Sega "Saturn Style" USB pad
@@ -183,6 +183,7 @@ static const USB_Device_ID_t PS3VIRTUASTICK_DEVICES[PS3VIRTUASTICK_DEVICES_SIZE]
 	{0x10C4, 0x82C0},
 	{0x14D8, 0xDEAD}, // Toodles' MC Cthulhu
 	{0x1532, 0x0402}, // Razer Panthera (PS3 Mode)
+	{0x16D0, 0x092B}, // QuadStick
 	{0x1C1A, 0x0100}, // Paewang PS3/360 (PS3 Mode)
 	{0x1F4F, 0x0008}  // NeoGeo CD USB Pad for PS3
 };
