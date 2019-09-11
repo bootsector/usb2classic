@@ -24,16 +24,16 @@ static uint16_t pad_data = 0xFFFF;
 
 static void multiout_spi_transfer(void) {
 	bit_clear(PD_ODR, 1 << 5); // Latch LOW
+	delay_us(10);
 	bit_clear(PD_ODR, 1 << 4); // Clock LOW
 
 	for (uint8_t i = 0; i < 16; i++)  {
+		delay_us(10);
 
 		bit_write(pad_data & (1 << (15 - i)), PD_ODR, 1 << 6);
 
-		delay_us(2);
-
 		bit_set(PD_ODR, 1 << 4); // Clock HIGH
-		delay_us(2);
+		delay_us(10);
 		bit_clear(PD_ODR, 1 << 4); // Clock LOW
 	}
 
