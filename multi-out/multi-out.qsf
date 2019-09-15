@@ -86,3 +86,11 @@ set_location_assignment PIN_41 -to snes_latch
 set_location_assignment PIN_36 -to threedo_clk
 set_location_assignment PIN_21 -to threedo_data
 set_location_assignment PIN_19 -to threedo_latch
+set_location_assignment PIN_11 -to user_reserve_1
+set_instance_assignment -name RESERVE_PIN "AS INPUT TRI-STATED" -to user_reserve_1
+set_location_assignment PIN_34 -to user_reserve_2
+set_instance_assignment -name RESERVE_PIN "AS INPUT TRI-STATED" -to user_reserve_2
+set_location_assignment PIN_20 -to user_reserve_3
+set_instance_assignment -name RESERVE_PIN "AS INPUT TRI-STATED" -to user_reserve_3
+set_location_assignment PIN_44 -to user_reserve_4
+set_instance_assignment -name RESERVE_PIN "AS INPUT TRI-STATED" -to user_reserve_4
