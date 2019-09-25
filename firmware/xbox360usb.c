@@ -115,6 +115,9 @@ void xbox360usb_update(AbstractPad_t *padData) {
 
 	padData->home = bit_check(usb_data->digital_buttons_2, XBOX360USB_HOME) || (padData->start && padData->select);
 
+	padData->l2 = 0;
+	padData->r2 = 0;
+
 	padData->l_analog = usb_data->lt;
 	padData->r_analog = usb_data->rt;
 }

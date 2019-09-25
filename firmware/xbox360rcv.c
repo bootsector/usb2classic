@@ -88,6 +88,9 @@ void xbox360rcv_update(AbstractPad_t *padData) {
 
 	padData->home = bit_check(usb_data[7], 2);
 
+	padData->l2 = 0;
+	padData->r2 = 0;
+
 	padData->l_analog = usb_data[8];
 	padData->r_analog = usb_data[9];
 }
