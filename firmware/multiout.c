@@ -167,10 +167,10 @@ void multiout_update(AbstractPad_t *padData) {
 
 			break;
 		default:
-			pad_data = (!padData->r2 << MULTIOUT_PAD_RES_2) | 
+			pad_data = (!padData->r2 << MULTIOUT_PAD_R) | 
 			(!padData->l2 << MULTIOUT_PAD_RES_1) |
-			(!padData->r1 << MULTIOUT_PAD_R) |
-			(!padData->l1 << MULTIOUT_PAD_L) |
+			(!padData->r1 << MULTIOUT_PAD_L) |
+			(!padData->l1 << MULTIOUT_PAD_RES_2) |
 			(!padData->triangle << MULTIOUT_PAD_X) |
 			(!padData->circle << MULTIOUT_PAD_A) |
 			(!padData->d_right << MULTIOUT_PAD_RIGHT) |
