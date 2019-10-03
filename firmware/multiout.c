@@ -21,6 +21,7 @@
 #include "bitwise.h"
 
 static uint16_t pad_data = 0xFFFF;
+static uint8_t map_config_id = 0;
 
 static void multiout_spi_transfer(void) {
 	bit_clear(PD_ODR, 1 << 5); // Latch LOW
@@ -47,6 +48,7 @@ void multiout_init(void) {
 	// OE    - PC4
 
 	pad_data = 0xFFFF;
+	map_config_id = 0;
 	
 	// Clock (push pull output, fast mode)
 	bit_set(PD_DDR, 1 << 4);
@@ -79,44 +81,92 @@ void multiout_init(void) {
 	bit_clear(PC_ODR, 1 << 4);
 }
 
+static void multiout_cycle_map_config(void) {
+	pad_data = 0xFFFF;
+	map_config_id = (map_config_id + 1) % 3;
+	delay_ms(250);
+}
+
 void multiout_update(AbstractPad_t *padData) {
 
+	// Check for map config cycle combo (SELECT + HOME)
+	if (padData->select && padData->home) {
+		multiout_cycle_map_config();
+	}
+
 	// Map analogs to D-Pad
-	if(padData->l_x_axis > 192) {
+	if (padData->l_x_axis > 192) {
 		padData->d_right = 1;
-	} else if(padData->l_x_axis < 64) {
+	} else if (padData->l_x_axis < 64) {
 		padData->d_left = 1;
 	}
 
-	if(padData->l_y_axis > 192) {
+	if (padData->l_y_axis > 192) {
 		padData->d_down = 1;
-	} else if(padData->l_y_axis < 64) {
+	} else if (padData->l_y_axis < 64) {
 		padData->d_up = 1;
 	}
 
 	// Analog triggers map to L2/R2
-	if(!padData->l2) {
+	if (!padData->l2) {
 		padData->l2 = (padData->l_analog >= 0x80);
 	}
 
-	if(!padData->r2) {
+	if (!padData->r2) {
 		padData->r2 = (padData->r_analog >= 0x80);
 	}
 
-	bit_write(!padData->d_left, pad_data, MULTIOUT_PAD_LEFT);
-	bit_write(!padData->d_right, pad_data, MULTIOUT_PAD_RIGHT);
-	bit_write(!padData->d_up, pad_data, MULTIOUT_PAD_UP);
-	bit_write(!padData->d_down, pad_data, MULTIOUT_PAD_DOWN);
-	bit_write(!padData->square, pad_data, MULTIOUT_PAD_Y);
-	bit_write(!padData->cross, pad_data, MULTIOUT_PAD_B);
-	bit_write(!padData->triangle, pad_data, MULTIOUT_PAD_X);
-	bit_write(!padData->circle, pad_data, MULTIOUT_PAD_A);
-	bit_write(!padData->select, pad_data, MULTIOUT_PAD_SELECT);
-	bit_write(!padData->start, pad_data, MULTIOUT_PAD_START);
-	bit_write(!padData->l1, pad_data, MULTIOUT_PAD_L);
-	bit_write(!padData->r1, pad_data, MULTIOUT_PAD_R);
-	bit_write(!padData->l2, pad_data, MULTIOUT_PAD_RES_1);
-	bit_write(!padData->r2, pad_data, MULTIOUT_PAD_RES_2);
+	switch (map_config_id) {
+		case 0x01:
+			pad_data = (!padData->r2 << MULTIOUT_PAD_A) | 
+			(!padData->l2 << MULTIOUT_PAD_RES_2) |
+			(!padData->r1 << MULTIOUT_PAD_R) |
+			(!padData->l1 << MULTIOUT_PAD_RES_1) |
+			(!padData->triangle << MULTIOUT_PAD_X) |
+			(!padData->circle << MULTIOUT_PAD_B) |
+			(!padData->d_right << MULTIOUT_PAD_RIGHT) |
+			(!padData->d_left << MULTIOUT_PAD_LEFT) |
+			(!padData->d_down << MULTIOUT_PAD_DOWN) |
+			(!padData->d_up << MULTIOUT_PAD_UP) |
+			(!padData->start << MULTIOUT_PAD_START) |
+			(!padData->select << MULTIOUT_PAD_SELECT) |
+			(!padData->square << MULTIOUT_PAD_L) |
+			(!padData->cross << MULTIOUT_PAD_Y);
+
+			break;
+		case 0x02:
+			pad_data = (!padData->r2 << MULTIOUT_PAD_X) | 
+			(!padData->l2 << MULTIOUT_PAD_Y) |
+			(!padData->r1 << MULTIOUT_PAD_R) |
+			(!padData->l1 << MULTIOUT_PAD_L) |
+			(!padData->triangle << MULTIOUT_PAD_START) |
+			(!padData->circle << MULTIOUT_PAD_A) |
+			(!padData->d_right << MULTIOUT_PAD_RIGHT) |
+			(!padData->d_left << MULTIOUT_PAD_LEFT) |
+			(!padData->d_down << MULTIOUT_PAD_DOWN) |
+			(!padData->d_up << MULTIOUT_PAD_UP) |
+			(!padData->select << MULTIOUT_PAD_SELECT) |
+			(!padData->cross << MULTIOUT_PAD_B);
+
+			break;
+		default:
+			pad_data = (!padData->r2 << MULTIOUT_PAD_RES_2) | 
+			(!padData->l2 << MULTIOUT_PAD_RES_1) |
+			(!padData->r1 << MULTIOUT_PAD_R) |
+			(!padData->l1 << MULTIOUT_PAD_L) |
+			(!padData->triangle << MULTIOUT_PAD_X) |
+			(!padData->circle << MULTIOUT_PAD_A) |
+			(!padData->d_right << MULTIOUT_PAD_RIGHT) |
+			(!padData->d_left << MULTIOUT_PAD_LEFT) |
+			(!padData->d_down << MULTIOUT_PAD_DOWN) |
+			(!padData->d_up << MULTIOUT_PAD_UP) |
+			(!padData->start << MULTIOUT_PAD_START) |
+			(!padData->select << MULTIOUT_PAD_SELECT) |
+			(!padData->square << MULTIOUT_PAD_Y) |
+			(!padData->cross << MULTIOUT_PAD_B);
+			
+			break;
+	}
 
 	multiout_spi_transfer();
 }

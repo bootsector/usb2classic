@@ -21,20 +21,20 @@
 #include "util.h"
 
 // Multi-Out board uses SNES pad layout
-#define MULTIOUT_PAD_B		1 << 0
-#define MULTIOUT_PAD_Y		1 << 1
-#define MULTIOUT_PAD_SELECT	1 << 2
-#define MULTIOUT_PAD_START	1 << 3
-#define MULTIOUT_PAD_UP		1 << 4
-#define MULTIOUT_PAD_DOWN	1 << 5
-#define MULTIOUT_PAD_LEFT	1 << 6
-#define MULTIOUT_PAD_RIGHT	1 << 7
-#define MULTIOUT_PAD_A		1 << 8
-#define MULTIOUT_PAD_X		1 << 9
-#define MULTIOUT_PAD_L		1 << 10
-#define MULTIOUT_PAD_R		1 << 11
-#define MULTIOUT_PAD_RES_1	1 << 12
-#define MULTIOUT_PAD_RES_2	1 << 13
+#define MULTIOUT_PAD_B		0
+#define MULTIOUT_PAD_Y		1
+#define MULTIOUT_PAD_SELECT	2
+#define MULTIOUT_PAD_START	3
+#define MULTIOUT_PAD_UP		4
+#define MULTIOUT_PAD_DOWN	5
+#define MULTIOUT_PAD_LEFT	6
+#define MULTIOUT_PAD_RIGHT	7
+#define MULTIOUT_PAD_A		8
+#define MULTIOUT_PAD_X		9
+#define MULTIOUT_PAD_L		10
+#define MULTIOUT_PAD_R		11
+#define MULTIOUT_PAD_RES_1	12
+#define MULTIOUT_PAD_RES_2	13
 
 void multiout_init(void);
 void multiout_update(AbstractPad_t *padData);
