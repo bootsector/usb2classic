@@ -165,8 +165,10 @@ void multiout_update(AbstractPad_t *padData) {
 			pad_data |= (!padData->r2 << MULTIOUT_PAD_A) | 
 			(!padData->l2 << MULTIOUT_PAD_Y) |
 			(!padData->r1 << MULTIOUT_PAD_R) |
+			(!padData->l1 << MULTIOUT_PAD_RES_1) |
 			(!padData->triangle << MULTIOUT_PAD_START) |
 			(!padData->circle << MULTIOUT_PAD_B) |
+			(!padData->start << MULTIOUT_PAD_RES_2) |
 			(!padData->select << MULTIOUT_PAD_SELECT) |
 			(!padData->square << MULTIOUT_PAD_L) |
 			(!padData->cross << MULTIOUT_PAD_X);
