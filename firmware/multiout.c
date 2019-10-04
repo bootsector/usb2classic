@@ -125,14 +125,14 @@ void multiout_update(AbstractPad_t *padData) {
 		case 0x01:
 			pad_data |= (!padData->r2 << MULTIOUT_PAD_R) | 
 			(!padData->l2 << MULTIOUT_PAD_RES_1) |
-			(!padData->r1 << MULTIOUT_PAD_L) |
-			(!padData->l1 << MULTIOUT_PAD_RES_2) |
-			(!padData->triangle << MULTIOUT_PAD_X) |
-			(!padData->circle << MULTIOUT_PAD_A) |
+			(!padData->r1 << MULTIOUT_PAD_Y) |
+			(!padData->l1 << MULTIOUT_PAD_X) |
+			(!padData->triangle << MULTIOUT_PAD_A) |
+			(!padData->circle << MULTIOUT_PAD_RES_2) |
 			(!padData->start << MULTIOUT_PAD_START) |
 			(!padData->select << MULTIOUT_PAD_SELECT) |
-			(!padData->square << MULTIOUT_PAD_Y) |
-			(!padData->cross << MULTIOUT_PAD_B);
+			(!padData->square << MULTIOUT_PAD_B) |
+			(!padData->cross << MULTIOUT_PAD_L);
 
 			break;
 		case 0x02:
@@ -162,14 +162,14 @@ void multiout_update(AbstractPad_t *padData) {
 
 			break;
 		case 0x04:
-			pad_data |= (!padData->r2 << MULTIOUT_PAD_X) | 
+			pad_data |= (!padData->r2 << MULTIOUT_PAD_A) | 
 			(!padData->l2 << MULTIOUT_PAD_Y) |
 			(!padData->r1 << MULTIOUT_PAD_R) |
-			(!padData->l1 << MULTIOUT_PAD_L) |
 			(!padData->triangle << MULTIOUT_PAD_START) |
-			(!padData->circle << MULTIOUT_PAD_A) |
+			(!padData->circle << MULTIOUT_PAD_B) |
 			(!padData->select << MULTIOUT_PAD_SELECT) |
-			(!padData->cross << MULTIOUT_PAD_B);
+			(!padData->square << MULTIOUT_PAD_L) |
+			(!padData->cross << MULTIOUT_PAD_X);
 
 			break;
 		default:
