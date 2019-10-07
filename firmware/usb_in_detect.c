@@ -146,7 +146,7 @@ static const USB_Device_ID_t XBOX360RCV_DEVICES[XBOX360RCV_DEVICES_SIZE] = {
 	{0x045E, 0x0719}
 };
 
-#define PS4USB_DEVICES_SIZE 10
+#define PS4USB_DEVICES_SIZE 11
 
 static const USB_Device_ID_t PS4USB_DEVICES[PS4USB_DEVICES_SIZE] = {
 	{0x054C, 0x09CC},
@@ -158,10 +158,11 @@ static const USB_Device_ID_t PS4USB_DEVICES[PS4USB_DEVICES_SIZE] = {
 	{0x0C12, 0x0C30}, // Brook Universal Fighting Board - PS4 Mode
 	{0x0C12, 0x0EF1}, // ZEROPLUS P4 Wired GamepadV2.3
 	{0x0F0D, 0x0087}, // Hori Fighting Stick mini 4 PS4 Mode
-	{0x1532, 0x0401}  // Razer Panthera (PS4 Mode)
+	{0x1532, 0x0401}, // Razer Panthera (PS4 Mode)
+	{0x2C22, 0x2000}  // Qanba Drone Arcade Joystick PS4 mode
 };
 
-#define PS3VIRTUASTICK_DEVICES_SIZE 22
+#define PS3VIRTUASTICK_DEVICES_SIZE 24
 
 static const USB_Device_ID_t PS3VIRTUASTICK_DEVICES[PS3VIRTUASTICK_DEVICES_SIZE] = {
 	{0x04B4, 0x010A}, //  Sega "Saturn Style" USB pad
@@ -181,11 +182,13 @@ static const USB_Device_ID_t PS3VIRTUASTICK_DEVICES[PS3VIRTUASTICK_DEVICES_SIZE]
 	{0x0F30, 0x1012}, // Qanba Q4 RAF (PS3 Mode)
 	{0x0F30, 0x1100}, // Qanba Q1 Fightstick for PC3/PC
 	{0x10C4, 0x82C0},
+	{0x146B, 0x0904}, // Daija Arcade Stick PS3 mode
 	{0x14D8, 0xDEAD}, // Toodles' MC Cthulhu
 	{0x1532, 0x0402}, // Razer Panthera (PS3 Mode)
 	{0x16D0, 0x092B}, // QuadStick
 	{0x1C1A, 0x0100}, // Paewang PS3/360 (PS3 Mode)
-	{0x1F4F, 0x0008}  // NeoGeo CD USB Pad for PS3
+	{0x1F4F, 0x0008}, // NeoGeo CD USB Pad for PS3
+	{0x2C22, 0x2003}  // Qanba Drone Arcade Joystick PS3 mode
 };
 
 static uint8_t usb_in_detect_device_lookup(USB_Device_ID_t *device_lut, int lut_size, uint16_t vid, uint16_t pid) {
