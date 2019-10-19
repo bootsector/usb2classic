@@ -89,11 +89,6 @@ static void multiout_cycle_map_config(void) {
 
 void multiout_update(AbstractPad_t *padData) {
 
-	// Check for map config cycle combo (SELECT + HOME)
-	if (padData->select && padData->home) {
-		multiout_cycle_map_config();
-	}
-
 	// Map analogs to D-Pad
 	if (padData->l_x_axis > 192) {
 		padData->d_right = 1;
@@ -105,6 +100,11 @@ void multiout_update(AbstractPad_t *padData) {
 		padData->d_down = 1;
 	} else if (padData->l_y_axis < 64) {
 		padData->d_up = 1;
+	}
+
+	// Home + Up buttons cycles through button mappings
+	if (padData->home && padData->d_up) {
+		multiout_cycle_map_config();
 	}
 
 	// Analog triggers map to L2/R2
@@ -163,7 +163,7 @@ void multiout_update(AbstractPad_t *padData) {
 			break;
 		case 0x04:
 			pad_data |= (!padData->r2 << MULTIOUT_PAD_A) | 
-			(!padData->l2 << MULTIOUT_PAD_Y) |
+			(!padData->l2 << MULTIOUT_PAD_X) |
 			(!padData->r1 << MULTIOUT_PAD_R) |
 			(!padData->l1 << MULTIOUT_PAD_RES_1) |
 			(!padData->triangle << MULTIOUT_PAD_START) |
@@ -171,7 +171,7 @@ void multiout_update(AbstractPad_t *padData) {
 			(!padData->start << MULTIOUT_PAD_RES_2) |
 			(!padData->select << MULTIOUT_PAD_SELECT) |
 			(!padData->square << MULTIOUT_PAD_L) |
-			(!padData->cross << MULTIOUT_PAD_X);
+			(!padData->cross << MULTIOUT_PAD_Y);
 
 			break;
 		default:

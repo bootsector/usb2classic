@@ -97,7 +97,7 @@ void ps3virtuastick_update(AbstractPad_t *padData) {
 	padData->r2 = usb_data->r2_btn;
 	padData->l2 = usb_data->l2_btn;
 
-	padData->home = usb_data->ps_btn || (padData->start && padData->select);
+	padData->home = usb_data->ps_btn;
 
 	padData->l_x_axis = usb_data->l_x_axis;
 	padData->l_y_axis = usb_data->l_y_axis;

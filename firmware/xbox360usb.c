@@ -113,7 +113,7 @@ void xbox360usb_update(AbstractPad_t *padData) {
 	padData->r_x_axis = ((int16_t)_fix_endianness(usb_data->r_x) + 32768) / 257;
 	padData->r_y_axis = ((int16_t)_fix_endianness(usb_data->r_y) - 32768) / -257;
 
-	padData->home = bit_check(usb_data->digital_buttons_2, XBOX360USB_HOME) || (padData->start && padData->select);
+	padData->home = bit_check(usb_data->digital_buttons_2, XBOX360USB_HOME);
 
 	padData->l2 = 0;
 	padData->r2 = 0;
