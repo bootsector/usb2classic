@@ -11197,11 +11197,6 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <label x="289.56" y="7.62" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC6" gate="0" pin="IO3"/>
-<wire x1="398.78" y1="60.96" x2="383.54" y2="60.96" width="0.1524" layer="91"/>
-<label x="383.54" y="60.96" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="RN2" gate="1" pin="6"/>
 <wire x1="223.52" y1="33.02" x2="223.52" y2="38.1" width="0.1524" layer="91"/>
 <label x="223.52" y="38.1" size="1.778" layer="95"/>
@@ -11219,11 +11214,6 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <label x="289.56" y="15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC6" gate="0" pin="IO51"/>
-<wire x1="398.78" y1="0" x2="383.54" y2="0" width="0.1524" layer="91"/>
-<label x="383.54" y="0" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="RN2" gate="1" pin="7"/>
 <wire x1="228.6" y1="33.02" x2="228.6" y2="38.1" width="0.1524" layer="91"/>
 <label x="228.6" y="38.1" size="1.778" layer="95"/>
@@ -11236,11 +11226,6 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <pinref part="IC2" gate="A" pin="QG"/>
 </segment>
 <segment>
-<pinref part="IC6" gate="0" pin="IO19"/>
-<wire x1="398.78" y1="40.64" x2="383.54" y2="40.64" width="0.1524" layer="91"/>
-<label x="383.54" y="40.64" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="RN2" gate="1" pin="8"/>
 <wire x1="233.68" y1="33.02" x2="233.68" y2="38.1" width="0.1524" layer="91"/>
 <label x="233.68" y="38.1" size="1.778" layer="95"/>
@@ -11251,11 +11236,6 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <wire x1="101.6" y1="48.26" x2="91.44" y2="48.26" width="0.1524" layer="91"/>
 <label x="91.44" y="48.26" size="1.778" layer="95"/>
 <pinref part="IC2" gate="A" pin="QH"/>
-</segment>
-<segment>
-<pinref part="IC6" gate="0" pin="OE1"/>
-<wire x1="398.78" y1="71.12" x2="381" y2="71.12" width="0.1524" layer="91"/>
-<label x="381" y="71.12" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RN2" gate="1" pin="9"/>
