@@ -116,6 +116,19 @@ void multiout_update(AbstractPad_t *padData) {
 		padData->r2 = (padData->r_analog >= 0x80);
 	}
 
+	// Right analog maps to some buttons (Good for Xeno Crisis on Sega Genesis)
+	if (padData->r_x_axis > 192) {
+		padData->cross = 1;
+	} else if (padData->r_x_axis < 64) {
+		padData->l1 = 1;
+	}
+
+	if (padData->r_y_axis > 192) {
+		padData->square = 1;
+	} else if (padData->r_y_axis < 64) {
+		padData->triangle = 1;
+	}
+
 	pad_data = (!padData->d_right << MULTIOUT_PAD_RIGHT) |
 	(!padData->d_left << MULTIOUT_PAD_LEFT) |
 	(!padData->d_down << MULTIOUT_PAD_DOWN) |
