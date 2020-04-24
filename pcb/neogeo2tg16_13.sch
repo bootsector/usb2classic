@@ -7753,13 +7753,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="35.56" y="-12.7" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RUN" class="0">
-<segment>
-<pinref part="IC5" gate="A" pin="4A"/>
-<wire x1="127" y1="22.86" x2="121.92" y2="22.86" width="0.1524" layer="91"/>
-<label x="121.92" y="22.86" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="UP" class="0">
 <segment>
 <pinref part="IC5" gate="A" pin="1B"/>
@@ -7855,6 +7848,11 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="RN1" gate="1" pin="5"/>
 <wire x1="43.18" y1="-17.78" x2="43.18" y2="-12.7" width="0.1524" layer="91"/>
 <label x="40.64" y="-12.7" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC5" gate="A" pin="4A"/>
+<wire x1="127" y1="22.86" x2="121.92" y2="22.86" width="0.1524" layer="91"/>
+<label x="121.92" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
