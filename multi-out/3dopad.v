@@ -26,18 +26,26 @@ module threedeeohpad (
 
 parameter BITS = 16;
 
-wire tmp;
+reg [BITS-1:0] tmp = ~0;
 
-shiftin s1 (
-    .clk(clk), 
-    .latch(ps), 
-    .data(tmp),
-    .system_clock(system_clock),
-    .i(i)
-);
+reg sync_clk, xfer_pipe;
+
+always @(posedge system_clock) begin
+    { sync_clk, xfer_pipe } <= { xfer_pipe, clk };
+end
+
+always @(posedge sync_clk) begin
+    if (ps) begin
+        tmp <= i;
+    end else begin
+        tmp <= {tmp[BITS-2:0],1'b0};
+    end
+end
 
 always @(*) begin
-    dat = !tmp || ps;
+    if (!sync_clk) begin
+        dat = !tmp[BITS-1] || ps;
+    end
 end
 
 endmodule

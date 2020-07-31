@@ -53,7 +53,7 @@ module threedeeohpad_tb;
         #13000 clk = 1;
         #13000 clk = 0;
 
-        latch = 0;
+        #100 latch = 0;
 
         for (ii = 0; ii < 32; ii = ii + 1) begin
             #13000 clk = 1;
@@ -66,7 +66,7 @@ module threedeeohpad_tb;
         #13000 clk = 1;
         #13000 clk = 0;
 
-        latch = 0;
+        #100 latch = 0;
 
         for (ii = 0; ii < 32; ii = ii + 1) begin
             #13000 clk = 1;
