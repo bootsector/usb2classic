@@ -34,10 +34,9 @@ module smdsixbutton (
     input md     // Mode button
 );
 
-//parameter TIMEOUT = 14'd8000; // For 10Mhz oscillator
-parameter TIMEOUT = 14'd16000; // For 20Mhz oscillator
+parameter TIMEOUT = 13'd8000;
 
-reg [13:0] clk_counter = TIMEOUT;
+reg [12:0] clk_counter = TIMEOUT;
 
 reg [1:0] hi_count = 2'b0;
 

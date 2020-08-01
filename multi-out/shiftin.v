@@ -44,7 +44,9 @@ always @(posedge sync_clk or posedge latch) begin
 end
 
 always @(*) begin
-    data = tmp[BITS-1];
+    if (sync_clk || latch) begin
+        data = tmp[BITS-1];
+    end
 end
 
 endmodule
