@@ -29,13 +29,15 @@ parameter BITS = 16;
 reg [BITS-1:0] tmp = ~0;
 
 reg sync_clk, xfer_pipe;
+reg sync_ps, xfer_pipe_ps;
 
 always @(posedge system_clock) begin
     { sync_clk, xfer_pipe } <= { xfer_pipe, clk };
+    { sync_ps, xfer_pipe_ps } <= { xfer_pipe_ps, ps };
 end
 
 always @(posedge sync_clk) begin
-    if (ps) begin
+    if (sync_ps) begin
         tmp <= i;
     end else begin
         tmp <= {tmp[BITS-2:0],1'b0};
@@ -44,7 +46,7 @@ end
 
 always @(*) begin
     if (!sync_clk) begin
-        dat = !tmp[BITS-1] || ps;
+        dat = !tmp[BITS-1] || sync_ps;
     end
 end
 

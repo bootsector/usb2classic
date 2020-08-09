@@ -25,26 +25,28 @@ module shiftin (
     input [BITS-1:0] i
 );
 
-parameter BITS = 16;
+parameter BITS = 12;
 
 reg [BITS-1:0] tmp = ~0;
 
 reg sync_clk, xfer_pipe;
+reg sync_latch, xfer_pipe_latch;
 
 always @(posedge system_clock) begin
     { sync_clk, xfer_pipe } <= { xfer_pipe, clk };
+    { sync_latch, xfer_pipe_latch } <= { xfer_pipe_latch, latch };
 end
 
-always @(posedge sync_clk or posedge latch) begin
-    if (latch) begin
+always @(posedge sync_clk or posedge sync_latch) begin
+    if (sync_latch) begin
         tmp <= i;
     end else begin
-        tmp <= {tmp[BITS-2:0],1'b0}; 
+        tmp <= {tmp[BITS-2:0],1'b1}; 
     end
 end
 
 always @(*) begin
-    if (sync_clk || latch) begin
+    if (sync_clk || sync_latch) begin
         data = tmp[BITS-1];
     end
 end

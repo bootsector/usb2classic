@@ -64,11 +64,7 @@ shiftin si1 (
         shiftout_in[8],
         shiftout_in[9],
         shiftout_in[10],
-        shiftout_in[11],
-        1'b1,
-        1'b1,
-        1'b1,
-        1'b1
+        shiftout_in[11]
     })
 );
 
